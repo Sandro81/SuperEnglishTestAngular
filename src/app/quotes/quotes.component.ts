@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {QuoteInterface} from '../quote.interface';
 import {Quote} from '@angular/compiler';
-import {Response} from "@angular/http";
+import {HttpResponse} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-quotes',
@@ -21,7 +22,7 @@ export class QuotesComponent implements OnInit {
     this.quoteService.getQuotes()
       .subscribe(
         (quotes: Quote[]) => this.quotes = quotes,
-        (error: Response) => console.log(error);
+        (error: HttpResponse) => console.log(error);
       );
   }
 
