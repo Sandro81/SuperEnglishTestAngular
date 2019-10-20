@@ -7,7 +7,8 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { NewQuoteComponent } from './new-quote/new-quote.component';
 import {FormsModule} from '@angular/forms';
 import {routing} from './app.routing';
-
+import {HttpClientModule} from '@angular/common/http';
+import {QuoteService} from './quote.service';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,10 @@ import {routing} from './app.routing';
   imports: [
     BrowserModule,
     FormsModule,
-    (this.HttpModule),
+    HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [QuoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
