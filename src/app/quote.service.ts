@@ -3,7 +3,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import { tap, map, filter } from 'rxjs/operators';
 
 
-@Injectable
+@Injectable()
 export class QuoteService {
   constructor(private http: HttpClient) {
 
@@ -12,7 +12,7 @@ export class QuoteService {
   getQuotes() {
     return this.http.get('http://localhost/superenglishtest/public/api/quotes')
       .map(
-        (response: Response) => {
+        (response: HttpResponse<any>) => {
           return response.json().quotes;
         }
       );
